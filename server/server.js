@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json())
 app.use(cors({
-    origin:'https://imagify-n7cd.onrender.com',
+    origin:'https://imagify-self-mu.vercel.app',
     credentials:true
 }))
 await connectDB()
