@@ -19,6 +19,13 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-2 sm:gap-4">
               <button 
+                onClick={()=>navigate('/gallery')} 
+                className="flex items-center gap-2 bg-white/70 backdrop-blur-sm border-2 border-purple-200 text-gray-700 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:scale-105 hover:border-purple-400 hover:shadow-lg transition-all duration-300 cursor-pointer font-medium"
+              >
+                <span className="text-lg">🖼️</span>
+                <span className="max-sm:hidden">Gallery</span>
+              </button>
+              <button 
                 onClick={()=>navigate('/buy')} 
                 className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer font-medium"
               >
