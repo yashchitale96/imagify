@@ -1,6 +1,6 @@
 import React from "react";
 import { stepsData } from "../assets/assets";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const Steps = () => {
   return (
@@ -11,23 +11,41 @@ const Steps = () => {
       viewport={{once:true}}
       className="flex flex-col items-center justify-center my-32"
     >
-      <h1 className="text-3xl sm:text-4xl font-semibold mb-2">How It Works</h1>
-      <p className="text-lg text-gray-600 mb-8">
-        Transform Words Into Stunning Images
-      </p>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+          How It Works
+        </h1>
+        <p className="text-lg text-gray-600 mb-12 text-center">
+          Transform Words Into Stunning Images
+        </p>
+      </motion.div>
 
-      <div className="space-y-4 w-full max-w-3xl text-sm">
+      <div className="space-y-6 w-full max-w-4xl">
         {stepsData.map((item, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex items-center gap-4 p-5 px-8 bg-white/20 shadow-md border-0 cursor-pointer hover:scale-[1.02] transition-all duration-300 rounded-lg"
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="flex items-center gap-6 p-8 px-10 bg-white/50 backdrop-blur-md shadow-xl border border-white/20 cursor-pointer hover:scale-[1.03] hover:shadow-2xl transition-all duration-300 rounded-2xl card-hover"
           >
-            <img width={40} src={item.icon} alt="" />
-            <div>
-              <h2 className="text-xl font-medium">{item.title}</h2>
-              <p className="text-gray-500">{item.description}</p>
+            <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl shadow-lg">
+              <img width={40} src={item.icon} alt="" className="filter brightness-0 invert" />
             </div>
-          </div>
+            <div className="flex-1">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">{item.title}</h2>
+              <p className="text-gray-600 text-base">{item.description}</p>
+            </div>
+            <div className="text-6xl font-bold text-purple-200">
+              {index + 1}
+            </div>
+          </motion.div>
         ))}
       </div>
     </motion.div>

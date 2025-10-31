@@ -26,37 +26,37 @@ const Header = () => {
       viewport={{ once: true }}
     >
       <motion.div
-        className="text-stone-500 inline-flex text-center gap-2 bg-white px-6 py-1 rounded-full border border-neutral-500"
+        className="inline-flex text-center gap-2 bg-white/40 backdrop-blur-md px-8 py-3 rounded-full border border-purple-200 shadow-lg"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        <p>Best Text To Image Generator</p>
-        <img src={assets.star_icon} alt="" />
+        <p className="text-gray-700 font-medium">🌟 Best Text To Image Generator</p>
+        <img src={assets.star_icon} alt="" className="w-5" />
       </motion.div>
 
       <motion.h1
-        className="text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center"
+        className="text-5xl max-w-[320px] sm:text-7xl sm:max-w-[650px] mx-auto mt-10 text-center font-bold leading-tight"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 2 }}
       >
-        Turn Text to <span className="text-blue-600">Image</span>, in Seconds.
+        Turn Text to <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">Image</span>, in Seconds.
       </motion.h1>
 
       <motion.p
-        className="text-center max-w-xl mx-auto mt-5"
+        className="text-center max-w-xl mx-auto mt-6 text-gray-600 text-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.8 }}
       >
-        Unleash your creativity with AI. Turn your imagination into visual art
+        Unleash your creativity with AI. Transform your imagination into stunning visual art
         in seconds - just type, and watch the magic happen.
       </motion.p>
 
       <motion.button
         onClick={onClickHandler}
-        className="sm:text-lg text-white bg-black w-auto mt-8 px-12 py-2.5 flex items-center gap-2 rounded-full cursor-pointer"
+        className="sm:text-lg text-white bg-gradient-to-r from-purple-600 to-pink-600 w-auto mt-10 px-12 py-4 flex items-center gap-3 rounded-full cursor-pointer shadow-xl hover:shadow-2xl font-semibold"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0 }}
@@ -71,7 +71,7 @@ const Header = () => {
       </motion.button>
 
       <motion.div
-        className="flex flex-wrap justify-center mt-16 gap-3"
+        className="flex flex-wrap justify-center mt-20 gap-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
@@ -80,12 +80,12 @@ const Header = () => {
           .fill("")
           .map((item, index) => (
             <motion.img
-              whileHover={{ scale: 1.05, duration: 0.1 }}
-              className="rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10"
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              className="rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer max-sm:w-14 border-4 border-white"
               src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1}
               alt=""
               key={index}
-              width={70}
+              width={80}
             />
           ))}
       </motion.div>
@@ -94,9 +94,9 @@ const Header = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="mt-2 text-neutral-600"
+        className="mt-4 text-gray-500 font-medium"
       >
-        Generated Images from Imagify
+        ✨ Generated Images from Imagify
       </motion.p>
     </motion.div>
   );
