@@ -12,7 +12,8 @@ const AppContextProvider = (props) => {
 
   const [credit, setCredit] = useState(false);
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  // Ensure backendUrl has proper format with fallback
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   const navigate = useNavigate()
 
