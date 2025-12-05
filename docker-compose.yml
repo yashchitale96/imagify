@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mern-mongo
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    # ports:
+    #   - "27017:27017"   # enable only for local dev
+
+  backend:
+    build: ./server
+    container_name: mern-backend
+    restart: always
+    ports:
+      - "${PORT}:4000"
+    env_file:
+      - .env
+    environment:
+      - PORT=4000
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./client
+    container_name: mern-frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+      - VITE_RAZORPAY_KEY_ID=${VITE_RAZORPAY_KEY_ID}
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
