@@ -14,7 +14,7 @@ export default defineConfig({
       'localhost',
       '127.0.0.1',
       '0.0.0.0',
-      'imagify-frontend-wfes.onrender.com',
+      'https://imagify-backend-oe0c.onrender.com/',
       '.onrender.com'
     ],
     hmr: {
