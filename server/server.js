@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json())
 app.use(cors({
-    origin:'https://imagify-self-mu.vercel.app',
+    origin:'https://imagify-frontend-wfes.onrender.com',
     // origin:'http://localhost:5173',
     credentials:true
 }))
