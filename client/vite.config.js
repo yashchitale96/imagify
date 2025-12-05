@@ -14,8 +14,8 @@ export default defineConfig({
       'localhost',
       '127.0.0.1',
       '0.0.0.0',
-      '.vercel.app',
-      'https://imagify-frontend-wfes.onrender.com'
+      'imagify-frontend-wfes.onrender.com',
+      '.onrender.com'
     ],
     hmr: {
       // adjust HMR host if needed when accessing from other machines

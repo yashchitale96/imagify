@@ -1,39 +1,26 @@
 version: "3.9"
 
 services:
-  mongo:
-    image: mongo:6
-    container_name: mern-mongo
-    restart: always
-    volumes:
-      - mongo_data:/data/db
-    # ports:
-    #   - "27017:27017"   # enable only for local dev
-
   backend:
     build: ./server
-    container_name: mern-backend
+    container_name: imagify-backend
     restart: always
     ports:
-      - "${PORT}:4000"
+      - "4000:4000"
     env_file:
-      - .env
+      - ./server/.env
     environment:
       - PORT=4000
-    depends_on:
-      - mongo
+      - NODE_ENV=production
 
   frontend:
     build: ./client
-    container_name: mern-frontend
+    container_name: imagify-frontend
     restart: always
     ports:
-      - "5173:5173"
+      - "80:80"
     environment:
-      - VITE_BACKEND_URL=${VITE_BACKEND_URL}
-      - VITE_RAZORPAY_KEY_ID=${VITE_RAZORPAY_KEY_ID}
+      - VITE_BACKEND_URL=https://imagify-backend-oe0c.onrender.com/
+      - VITE_RAZORPAY_KEY_ID=rzp_test_RRRdlwqv8Tdmji
     depends_on:
       - backend
-
-volumes:
-  mongo_data:
