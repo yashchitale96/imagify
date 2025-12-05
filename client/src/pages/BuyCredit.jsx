@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion } from "motion/react";
 import { assets, plans } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";

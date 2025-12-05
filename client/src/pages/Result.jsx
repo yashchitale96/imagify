@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { motion } from "motion/react";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 
