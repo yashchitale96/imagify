@@ -15,7 +15,6 @@ const AppContextProvider = (props) => {
   // Ensure backendUrl has proper format with fallback
   const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://imagify-backend-oe0c.onrender.com/'
   
-  console.log('Backend URL:', backendUrl); // Debug log
 
   const navigate = useNavigate()
 
